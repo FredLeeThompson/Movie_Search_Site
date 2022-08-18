@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <title>Movie DB Lookup</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!--Link custom fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Monoton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div>
+        <header>
+            <div id="header_text">
+                <h1>The <i>GREAT</i>&nbsp;  Movie Info Generator</h1>
+            </div>
+        </header>
+    </div>
+
+    <div id="bod_div">
+        <video width="400" heaight="100" playsinline autoplay muted loop>
+            <source src="video/movies.mp4" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+
+        <div id="form_div">
+            <form id="form1" name="movieForm" action="http://www.omdbapi.com/?" method="get" onsubmit="return validateForm()">
+                <label for="apikey">API Key:</label><br>
+                <input type="text" id="apikey" name="apikey" required><br>
+
+                <br>
+
+                <label for="t">Title:</label><br>
+                <input type="text" id="title" name="title" required value="Jurassic World"><br><br>
+
+                <label for="imdbid">OMDB ID:</label><br>
+                <input type="text" id="imdbid" name="omdbid"><br>
+
+                <br>
+
+                <label for="y">Year:</label><br>
+                <input type="text" id="year" name="year" value="2022"><br>
+
+                <br>
+
+                <label for="plot">Plot:<br></label>
+                <select id="plot" name="plot">
+                    <option>Short</option>
+                    <option>Long</option>
+                </select>
+            </form><br>
+
+            <button id="search" type="submit">SEARCH!</button>
+        </div>
+
+        <script src="index.js">
+        </script>
+
+    </div>
+
+    <div id="bod_div2"></div><br>
+    <div id="bod_div3"></div><br>
+
+</body>
+
+<footer id="footer">Created By Cecil</footer>
+
+</html>

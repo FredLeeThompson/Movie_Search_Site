@@ -16,6 +16,16 @@
     font-style: bold;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 2px solid black;
+    text-align: center;
+}
+
 .footer {
     background-color: black;
     color: white;

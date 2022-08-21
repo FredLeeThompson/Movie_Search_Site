@@ -1,3 +1,29 @@
 .mandatory {
     color: red;
 }
+
+#form_div {
+    background-color: bisque;
+    text-align: center;
+    width: auto;
+}
+
+#header_div {
+    text-align: center;
+}
+
+.results h1 {
+    font-style: bold;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    height: 30px;
+}
+
+#footer_text {
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+}

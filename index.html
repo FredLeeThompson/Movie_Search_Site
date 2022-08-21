@@ -16,19 +16,30 @@
 
 <body>
 
-    <div>
-        <header>
-            <div id="header_text">
-                <h1>The <i>GREAT</i>&nbsp;  Movie Info Generator</h1>
-            </div>
-        </header>
+    <div id="header_div">
+        <div>
+            <header>
+                <div id="header_text">
+                    <h1>The <i>GREAT</i>&nbsp;  Movie Info Generator</h1>
+                </div>
+            </header>
+        </div>
+
+        <br>
+        <br>
+
+        <div id="header_video">
+                <video width="400" heaight="100" playsinline autoplay muted loop>
+                    <source src="video/movies.mp4" type="video/webm">Your browser does not support the video tag.
+                </video>
+        </div>
     </div>
 
-    <div id="bod_div">
-        <video width="400" heaight="100" playsinline autoplay muted loop>
-            <source src="video/movies.mp4" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
+    <br>
+    <br>
+    <br>
+
+    <div id="form_div">
 
         <!--<div id="form_div">
             <form id="form1" name="movieForm" action="http://www.omdbapi.com/?" method="get" onsubmit="return validateForm()">
@@ -61,17 +72,23 @@
         </div>-->
 
         <movie-form></movie-form>
+        <button id="search" type="submit">SEARCH!</button>
 
-        <script src="movie_form.js">
-        </script>
+        <script src="movie_form.js"></script>
 
     </div>
 
-    <div id="bod_div2"></div><br>
+    <br>
+    <br>
+
+    <h2 ID="results">RESULTS SHOWN HERE!</h2>
+    <div id="bod_div"></div><br>
     <div id="bod_div3"></div><br>
 
 </body>
 
-<footer id="footer">Created By Cecil</footer>
+<footer class="footer">
+    <div id="footer_text">Created By Cecil</div>
+</footer>
 
 </html>

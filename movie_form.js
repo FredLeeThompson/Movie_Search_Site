@@ -139,7 +139,7 @@ customElements.define('movie-form', MovieForm);
 //Test comment
 
 function myFetch() {
-    
+
 let title1 = document.getElementById("title").value;
 console.log(title1);
 let id1 = document.getElementsByName("omdbid");
@@ -165,7 +165,20 @@ let list1 = [];
         console.log(movURL);
 
         let tableData = `
-            <img src= ${movURL} alt="movie poster">
+            <table>
+            <tr>
+                <th>Movie</th>
+                <th>Released</th>
+                <th>Plot</th>
+                <th>Actors</th>
+            </tr>
+            <tr>
+                <td><img src="${movURL}" alt="movie poster"></td>
+                <td>${list1[0].Released}</td>
+                <td>${list1[0].Plot}</td>
+                <td>${list1[0].Actors}</td>
+            </tr>
+            <!--<img src= ${movURL} alt="movie poster">-->
         `;
 
     

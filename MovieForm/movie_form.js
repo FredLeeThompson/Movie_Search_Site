@@ -30,7 +30,7 @@ class IDSearch extends HTMLElement {
         this.innerHTML = `
             <div>
                 <label for="imdbid">OMDB ID:</label><br>
-                <input type="text" id="imdbid" name="omdbid" placeholder="optional"<br>
+                <input type="text" id="imdbid" name="omdbid" placeholder="optional"><br>
             </div>
         `
     }
@@ -103,8 +103,6 @@ class MovieForm extends HTMLElement {
                 </form><br>
 
                 <br>
-
-                <!--<button id="search" type="submit" onclick="main.js">SEARCH!</button>-->
 
             </div>
         `

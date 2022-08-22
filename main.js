@@ -9,6 +9,8 @@ function myFetch() {
     let plot1 = document.getElementsByName("plot");
     let apikey1 = document.getElementById("apikey01").value;
     console.log(apikey1);
+
+    //const fav = document.getElementById("fav_bttn")
     
     let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
     console.log(fetchurl);
@@ -32,15 +34,24 @@ function myFetch() {
         let tableData = `
             <table>
                 <tr>
-                    <th>Movie</th>
+                    <th>Poster</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Rating</th>
                     <th>Released</th>
-                    <th>Plot</th>
-                    <th>Actors</th>
+                    <th>Favorite</th>
+                    <th>Notes</th>
                 </tr>
                 <tr>
                     <td><img src="${movURL}" alt="movie poster"></td>
+                    <td>${list1[0].Title}</td>
+                    <td>${list1[0].Year}</td>
+                    <td>${list1[0].Rating}</td>
                     <td>${list1[0].Released}</td>
-                    <td>${list1[0].Plot}</td>
+                    <td>
+                        <input type="checkbox" id="fav_bttn" name="movie_fav">
+                        <label for="fav_bttn">Add to Favorite</label>
+                    </td>
                     <td>${list1[0].Actors}</td>
                 </tr>
                 <!--<img src= ${movURL} alt="movie poster">-->
@@ -64,6 +75,7 @@ function myFetch() {
     function myFunct1() {
         document.getElementById('bod_div').innerHTML = tableData;
     }
+
     
     //Define a form validation fuction.
     function validateForm() {

@@ -15,23 +15,22 @@ function myFetch() {
     
     let list1 = [];
     
-    //function myFetch() {
-        fetch (fetchurl)
+    fetch (fetchurl)
     
-        .then ((data)=>{
-            return data.json(); //converted to json object
-        })
-    
+    .then ((data)=>{
+        return data.json(); //converted to json object
+    })
     
     
-        .then ((objectData)=>{
-            list1.push(objectData);
-            console.log(list1);
-            movURL = list1[0].Poster;
-            //console.log(movURL);
     
-            let tableData = `
-                <table>
+    .then ((objectData)=>{
+        list1.push(objectData);
+        console.log(list1);
+        movURL = list1[0].Poster;
+        //console.log(movURL);
+    
+        let tableData = `
+            <table>
                 <tr>
                     <th>Movie</th>
                     <th>Released</th>
@@ -45,7 +44,8 @@ function myFetch() {
                     <td>${list1[0].Actors}</td>
                 </tr>
                 <!--<img src= ${movURL} alt="movie poster">-->
-            `;
+            </table>
+        `;
     
         
             /*objectData.map((objectData=>{

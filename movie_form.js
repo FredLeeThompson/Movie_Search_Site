@@ -27,8 +27,8 @@ class APIKeySearch extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div>
-                <label id="apikey01" for="apikey">API Key: <span class="mandatory">*</span></label><br>
-                <input type="text" id="apikey" name="apikey" placeholder="Enter API key" aria-required="true" aria-label="Enter API Key" required><br>
+                <label for="apikey01">API Key: <span class="mandatory">*</span></label><br>
+                <input type="text" id="apikey01" name="apikey" placeholder="Enter API key" aria-required="true" aria-label="Enter API Key" required><br>
             </div>
         `
     }
@@ -144,8 +144,9 @@ let title1 = document.getElementById("title").value;
 console.log(title1);
 let id1 = document.getElementsByName("omdbid");
 let year1 = document.getElementsByName("year");
-let plot1 = year1 = document.getElementsByName("plot");
-let apikey1 = "7fe5d6e7" //document.getElementById("apikey01");
+let plot1 = document.getElementsByName("plot");
+let apikey1 = document.getElementById("apikey01").value;
+console.log(apikey1);
 
 let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
 console.log(fetchurl);
@@ -154,6 +155,7 @@ let list1 = [];
 
 //function myFetch() {
     fetch (fetchurl)
+
     .then ((data)=>{
         return data.json(); //converted to json object
     })
@@ -162,7 +164,7 @@ let list1 = [];
         list1.push(objectData);
         console.log(list1);
         movURL = list1[0].Poster;
-        console.log(movURL);
+        //console.log(movURL);
 
         let tableData = `
             <table>
@@ -188,8 +190,10 @@ let list1 = [];
 
         document.getElementById("bod_div").innerHTML=tableData;
 
-        list1.shift();
+        //list1.shift();
     })
+
+    list1.shift();
 };
 
 /*function functionToExecute() {
@@ -200,10 +204,26 @@ function myFunct1() {
     document.getElementById('bod_div').innerHTML = tableData;
 }
 
+function validateForm() {
+    let x = document.forms["movieForm"]["apikey"].value;
+    let y = document.forms["movieForm"]["title"].value;
+    if (x == "" || y == "") {
+        alert("Please check your API key or title");
+        return false;
+    }
+    else {
+        return true;
+    };
+}
+
 document.getElementById("search").onclick = function() {
-    myFetch();
+    if (validateForm()) {
+        myFetch();
+    }
+    //myFetch();
     //myFunct1();
 }
 //myFunct1();
+
 
 

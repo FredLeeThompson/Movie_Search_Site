@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.results {
+#results {
     color: red;
     font-style: bold;
     text-decoration: underline;
@@ -24,6 +24,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     background-color: rgb(223, 220, 220);
+    margin-top: 40px;
 }
 
 td, th {

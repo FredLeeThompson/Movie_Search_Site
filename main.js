@@ -49,8 +49,7 @@ function myFetch() {
                     <td>${list1[0].Rating}</td>
                     <td>${list1[0].Released}</td>
                     <td>
-                        <input type="checkbox" id="fav_bttn" name="movie_fav">
-                        <label for="fav_bttn">Add to Favorite</label>
+                        <button class="fav_bttn">Add to favorites</button>
                     </td>
                     <td>${list1[0].Actors}</td>
                 </tr>

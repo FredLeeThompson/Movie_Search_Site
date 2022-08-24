@@ -55,10 +55,20 @@ td label {
     font-size: x-large;
 }
 
+#fav_bttn {
+    background-color: white;
+    color: black;
+}
+
+.fav_bttn:hover {
+    background-color: rgb(3, 102, 173);
+    color: white;
+    transform: scale(1.09);
+}
+
 .footer {
     background-color: black;
     color: white;
-    height: 30px;
 }
 
 #footer_text {

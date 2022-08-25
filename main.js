@@ -82,6 +82,7 @@ function myFetch() {
         `;
 
         fav_tableData = `
+        <br>
         <table>
             <h3>My Favorites</h3>
             <tr>

@@ -1,4 +1,17 @@
+window.addEventListener(
+    //wait for page to load
+    'load', 
+    
+    //Once page is loaded,
+    () => {
+        if(localStorage.getItem('testObject') !== null){
+            var cache_stor = localStorage.getItem('testObject');
+            document.getElementById("bod_div2").innerHTML=cache_stor;
+        }
+    });
+
 var tableData =``;
+var fav_tableData =``;
 
 function myFetch() {
 
@@ -15,7 +28,19 @@ function myFetch() {
     let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
     //console.log(fetchurl);
     
-    let list1 = [];
+    let list1 = []; 
+    
+    /*   
+    //Capture a copy of the data in list1.
+    var fav_list1_capture = [];
+    function list1_capture() {
+        for (var i of list1) {
+            fav_list1_capture.push(i);
+        };
+    };
+    */
+
+    //.....................................................................
     
     fetch (fetchurl)
     
@@ -27,7 +52,6 @@ function myFetch() {
     
     .then ((objectData)=>{
         list1.push(objectData);
-        //console.log(list1);
         movURL = list1[0].Poster;
         //console.log(movURL);
     
@@ -56,6 +80,30 @@ function myFetch() {
                 <!--<img src= ${movURL} alt="movie poster">-->
             </table>
         `;
+
+        fav_tableData = `
+        <table>
+            <h3>My Favorites</h3>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Released</th>
+                <th>Favorite</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><img src="${movURL}" alt="movie poster"></td>
+                <td>${list1[0].Title}</td>
+                <td>${list1[0].Year}</td>
+                <td>${list1[0].Rating}</td>
+                <td>${list1[0].Released}</td>
+                <td>${list1[0].Actors}</td>
+            </tr>
+            <!--<img src= ${movURL} alt="movie poster">-->
+        </table>
+    `;
     
         
             /*objectData.map((objectData=>{
@@ -70,13 +118,17 @@ function myFetch() {
                 console.log(localStorage.getItem('favMovItem'), JSON.parse('favMovItem'));
             };*/
 
+
+
+            //................................................................................
+
             const favBttn = document.querySelector(".fav_bttn");
 
             function saveMe () {
-            localStorage.setItem('testObject', (tableData));
-            var saved = localStorage.getItem('testObject');
-            console.log(saved);
-            document.getElementById("bod_div2").innerHTML=saved;
+                localStorage.setItem('testObject', fav_tableData);
+                var saved = localStorage.getItem('testObject');
+                console.log(saved);
+                document.getElementById("bod_div2").innerHTML=saved;
             }
 
             //var saved = localStorage.getItem('testObject');
@@ -86,6 +138,9 @@ function myFetch() {
             //console.log(saved);
 
             //console.log('saved: ', JSON.parse(saved));
+
+
+            //console.log(list1);
 
             //favBttn.addEventListener('click', saveToStorage);
 

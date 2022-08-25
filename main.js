@@ -1,19 +1,19 @@
-
+var tableData =``;
 
 function myFetch() {
 
     let title1 = document.getElementById("title").value;
-    console.log(title1);
+    //console.log(title1);
     let id1 = document.getElementsByName("omdbid");
     let year1 = document.getElementsByName("year");
     let plot1 = document.getElementsByName("plot");
     let apikey1 = document.getElementById("apikey01").value;
-    console.log(apikey1);
+    //console.log(apikey1);
 
     //const fav = document.getElementById("fav_bttn")
     
     let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
-    console.log(fetchurl);
+    //console.log(fetchurl);
     
     let list1 = [];
     
@@ -27,11 +27,11 @@ function myFetch() {
     
     .then ((objectData)=>{
         list1.push(objectData);
-        console.log(list1);
+        //console.log(list1);
         movURL = list1[0].Poster;
         //console.log(movURL);
     
-        let tableData = `
+        tableData = `
             <table>
                 <tr>
                     <th>Poster</th>
@@ -63,12 +63,39 @@ function myFetch() {
             }));*/
     
             document.getElementById("bod_div").innerHTML=tableData;
-    
+            //console.log(tableData);
+
+            /*const saveToStorage = () => {
+                localStorage.setItem('favMovItem', JSON.stringify(tableData));
+                console.log(localStorage.getItem('favMovItem'), JSON.parse('favMovItem'));
+            };*/
+
+            const favBttn = document.querySelector(".fav_bttn");
+
+            function saveMe () {
+            localStorage.setItem('testObject', (tableData));
+            var saved = localStorage.getItem('testObject');
+            console.log(saved);
+            document.getElementById("bod_div2").innerHTML=saved;
+            }
+
+            //var saved = localStorage.getItem('testObject');
+
+            favBttn.addEventListener('click', saveMe);
+
+            //console.log(saved);
+
+            //console.log('saved: ', JSON.parse(saved));
+
+            //favBttn.addEventListener('click', saveToStorage);
+
             //list1.shift();
         })
     
-        list1.shift();
-    };
+    list1.shift();
+
+
+};
 
     //Define a fuction to show movie results table in the DOM.
     function myFunct1() {
@@ -92,4 +119,13 @@ function myFetch() {
 
     //...........................................................................................
 
+    //.................Save To Local Storage...................................................
+  
+
+    //Add a listener for the favorites button.
+
+    //create varibale to hold the button.
+    
+
+    //console.log(tableData)
 

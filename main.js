@@ -91,7 +91,6 @@ function myFetch() {
                 <th>Year</th>
                 <th>Rating</th>
                 <th>Released</th>
-                <th>Favorite</th>
                 <th>Notes</th>
             </tr>
             <tr>
@@ -100,7 +99,11 @@ function myFetch() {
                 <td>${list1[0].Year}</td>
                 <td>${list1[0].Rating}</td>
                 <td>${list1[0].Released}</td>
-                <td>${list1[0].Actors}</td>
+                <td>
+                    <textarea id="w3review" name="w3review" rows="4" cols="50">
+                        At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                    </textarea>
+                </td>
             </tr>
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>
@@ -126,6 +129,7 @@ function myFetch() {
             const favBttn = document.querySelector(".fav_bttn");
 
             function saveMe () {
+                tableData += fav_tableData;
                 localStorage.setItem('testObject', fav_tableData);
                 var saved = localStorage.getItem('testObject');
                 console.log(saved);

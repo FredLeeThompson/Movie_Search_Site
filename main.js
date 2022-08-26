@@ -137,9 +137,14 @@ function myFetch() {
                 document.getElementById("bod_div2").innerHTML=saved;
             }
 
+            function deleteMe () {
+                localStorage.removeItem('testObject');
+            }
+
             //var saved = localStorage.getItem('testObject');
 
             favBttn.addEventListener('click', saveMe);
+            
 
             //console.log(saved);
 

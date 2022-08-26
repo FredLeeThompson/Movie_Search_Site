@@ -1,3 +1,4 @@
+
 window.addEventListener(
     //wait for page to load
     'load', 
@@ -53,7 +54,7 @@ function myFetch() {
     .then ((objectData)=>{
         list1.push(objectData);
         movURL = list1[0].Poster;
-        //console.log(movURL);
+        console.log(list1[0].imdbRating);
     
         tableData = `
             <table>
@@ -64,13 +65,13 @@ function myFetch() {
                     <th>Rating</th>
                     <th>Released</th>
                     <th>Favorite</th>
-                    <th>Notes</th>
+                    <th>Actors</th>
                 </tr>
                 <tr>
                     <td><img src="${movURL}" alt="movie poster"></td>
                     <td>${list1[0].Title}</td>
                     <td>${list1[0].Year}</td>
-                    <td>${list1[0].Rating}</td>
+                    <td>${list1[0].imdbRating}</td>
                     <td>${list1[0].Released}</td>
                     <td>
                         <button class="fav_bttn">Add to favorites</button>
@@ -92,18 +93,18 @@ function myFetch() {
                 <th>Rating</th>
                 <th>Released</th>
                 <th>Notes</th>
+                <th></th>
             </tr>
             <tr>
                 <td><img src="${movURL}" alt="movie poster"></td>
                 <td>${list1[0].Title}</td>
                 <td>${list1[0].Year}</td>
-                <td>${list1[0].Rating}</td>
+                <td>${list1[0].imdbRating}</td>
                 <td>${list1[0].Released}</td>
                 <td>
-                    <textarea id="w3review" name="w3review" rows="4" cols="50">
-                        At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
-                    </textarea>
+                    <textarea rows="4" cols="50" name="notes">Sample text notes.</textarea>
                 </td>
+                <td><button class="del_bttn">Remove from favorites</button></td>
             </tr>
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>

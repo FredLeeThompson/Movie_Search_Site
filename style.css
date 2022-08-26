@@ -66,6 +66,12 @@ td label {
     transform: scale(1.09);
 }
 
+.del_bttn:hover {
+    background-color: rgb(242, 20, 20);
+    color: white;
+    transform: scale(1.09);
+}
+
 #bod_div2 h3 {
     text-align: center;
     font-size: xx-large;

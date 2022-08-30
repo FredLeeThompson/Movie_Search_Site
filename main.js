@@ -1,4 +1,4 @@
-
+allItemsReturn = [];
 window.addEventListener(
     //wait for page to load
     'load', 
@@ -6,13 +6,31 @@ window.addEventListener(
     //Once page is loaded,
     () => {
         if(localStorage.getItem('testObject') !== null){
-            var cache_stor = localStorage.getItem('testObject');
-            document.getElementById("bod_div2").innerHTML=cache_stor;
+            //var cache_stor = localStorage.getItem('testObject');
+            //document.getElementById("bod_div2").innerHTML=cache_stor;
+            document.getElementById("bod_div2").innerHTML=allItemsReturn;
         }
     });
 
 var tableData =``;
 var fav_tableData =``;
+let counter = 0;
+let newObjName = 'testObject' + counter;
+reMe = [];
+
+
+function getAllItems()  
+{    
+    for (i = 0; i <= localStorage.length-1; i++)    
+    {     
+        allItemsReturn.push(localStorage.getItem(localStorage.key(i)));        
+    }
+    return allItemsReturn;
+}  
+
+console.log(getAllItems());
+
+
 
 function myFetch() {
 
@@ -23,11 +41,12 @@ function myFetch() {
     let plot1 = document.getElementsByName("plot");
     let apikey1 = document.getElementById("apikey01").value;
     //console.log(apikey1);
+    
 
     //const fav = document.getElementById("fav_bttn")
     
-    let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
-    //console.log(fetchurl);
+    let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 + '&y=' + year1 + '&plot=' + plot1;
+    console.log('the fetch url is: ' + fetchurl);
     
     let list1 = []; 
     
@@ -54,7 +73,7 @@ function myFetch() {
     .then ((objectData)=>{
         list1.push(objectData);
         movURL = list1[0].Poster;
-        console.log(list1[0].imdbRating);
+        //console.log(movURL);
     
         tableData = `
             <table>
@@ -65,7 +84,7 @@ function myFetch() {
                     <th>Rating</th>
                     <th>Released</th>
                     <th>Favorite</th>
-                    <th>Actors</th>
+                    <th>Notes</th>
                 </tr>
                 <tr>
                     <td><img src="${movURL}" alt="movie poster"></td>
@@ -85,15 +104,14 @@ function myFetch() {
         fav_tableData = `
         <br>
         <table>
-            <h3>My Favorites</h3>
             <tr>
                 <th>Poster</th>
                 <th>Title</th>
                 <th>Year</th>
                 <th>Rating</th>
                 <th>Released</th>
+                <th>Favorite</th>
                 <th>Notes</th>
-                <th></th>
             </tr>
             <tr>
                 <td><img src="${movURL}" alt="movie poster"></td>
@@ -101,14 +119,15 @@ function myFetch() {
                 <td>${list1[0].Year}</td>
                 <td>${list1[0].imdbRating}</td>
                 <td>${list1[0].Released}</td>
-                <td>
-                    <textarea rows="4" cols="50" name="notes">Sample text notes.</textarea>
-                </td>
-                <td><button class="del_bttn">Remove from favorites</button></td>
+                <td>${list1[0].Actors}</td>
             </tr>
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>
     `;
+
+    
+
+    saveNew = `<a href="javascript:location.reload();">View All Favorites</a>`;
     
         
             /*objectData.map((objectData=>{
@@ -130,21 +149,32 @@ function myFetch() {
             const favBttn = document.querySelector(".fav_bttn");
 
             function saveMe () {
-                tableData += fav_tableData;
-                localStorage.setItem('testObject', fav_tableData);
-                var saved = localStorage.getItem('testObject');
-                console.log(saved);
-                document.getElementById("bod_div2").innerHTML=saved;
-            }
-
-            function deleteMe () {
-                localStorage.removeItem('testObject');
+                console.log('Counter is set to: ' + counter);
+                if (localStorage.getItem('testObject') === null) {
+                    console.log('No favorite was found saved! A new one has now been saved.')
+                    localStorage.setItem('testObject', fav_tableData);
+                    var saved = localStorage.getItem('testObject');
+                    console.log(saved);
+                    document.getElementById("bod_div2").innerHTML=saved;
+                    document.getElementById("bod_div3").innerHTML=saveNew;
+                    counter++;
+                    newObjName = 'testObject' + counter;
+                } else {
+                    console.log('Object was found present as: ' + newObjName)
+                    localStorage.setItem(newObjName, fav_tableData);
+                    var saved = localStorage.getItem(newObjName);
+                    console.log(saved);
+                    document.getElementById("bod_div2").innerHTML=saved;
+                    document.getElementById("bod_div3").innerHTML=saveNew;
+                    counter++;
+                    newObjName = 'testObject' + counter;
+                }
+            
             }
 
             //var saved = localStorage.getItem('testObject');
 
             favBttn.addEventListener('click', saveMe);
-            
 
             //console.log(saved);
 

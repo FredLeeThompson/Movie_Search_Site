@@ -124,6 +124,7 @@ function myFetch() {
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>
     `;
+
     
 
     saveNew = `<a href="javascript:location.reload();">View All Favorites</a>`;

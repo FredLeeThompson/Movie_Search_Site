@@ -67,7 +67,7 @@ td label {
     transform: scale(1.09);
 }
 
-#bod_div2 h3 {
+.resultsHeader {
     text-align: center;
     font-size: xx-large;
     text-decoration: underline;

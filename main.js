@@ -45,8 +45,8 @@ function myFetch() {
 
     //const fav = document.getElementById("fav_bttn")
     
-    let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 ; //+ '&y=' + year1 + '&plot=' + plot1;
-    //console.log(fetchurl);
+    let fetchurl = 'http://www.omdbapi.com/?apikey=' + apikey1 + '&t=' + title1 + '&y=' + year1 + '&plot=' + plot1;
+    console.log('the fetch url is: ' + fetchurl);
     
     let list1 = []; 
     

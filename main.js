@@ -125,7 +125,7 @@ function myFetch() {
         </table>
     `;
 
-    saveNew = `<a href=".">View All Favorites</a>`;
+    saveNew = `<a href="javascript:location.reload();">View All Favorites</a>`;
     
         
             /*objectData.map((objectData=>{

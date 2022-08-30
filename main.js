@@ -124,6 +124,8 @@ function myFetch() {
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>
     `;
+
+    saveNew = `<a href="/.index.html">View All Favorites</a>`;
     
         
             /*objectData.map((objectData=>{
@@ -152,6 +154,7 @@ function myFetch() {
                     var saved = localStorage.getItem('testObject');
                     console.log(saved);
                     document.getElementById("bod_div2").innerHTML=saved;
+                    document.getElementById("bod_div3").innerHTML=saveNew;
                     counter++;
                     newObjName = 'testObject' + counter;
                 } else {
@@ -159,7 +162,8 @@ function myFetch() {
                     localStorage.setItem(newObjName, fav_tableData);
                     var saved = localStorage.getItem(newObjName);
                     console.log(saved);
-                    document.getElementById("bod_div2").innerHTML=allItemsReturn;
+                    document.getElementById("bod_div2").innerHTML=saved;
+                    document.getElementById("bod_div3").innerHTML=saveNew;
                     counter++;
                     newObjName = 'testObject' + counter;
                 }

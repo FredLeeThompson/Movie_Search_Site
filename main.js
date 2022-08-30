@@ -110,8 +110,8 @@ function myFetch() {
                 <th>Year</th>
                 <th>Rating</th>
                 <th>Released</th>
-                <th>Favorite</th>
                 <th>Notes</th>
+                <th></th>
             </tr>
             <tr>
                 <td><img src="${movURL}" alt="movie poster"></td>
@@ -119,7 +119,8 @@ function myFetch() {
                 <td>${list1[0].Year}</td>
                 <td>${list1[0].imdbRating}</td>
                 <td>${list1[0].Released}</td>
-                <td>${list1[0].Actors}</td>
+                <td><textarea col="200" rows="5"></textarea></td>
+                <td><button class="del_bttn">Remove from favorites</button></td>
             </tr>
             <!--<img src= ${movURL} alt="movie poster">-->
         </table>

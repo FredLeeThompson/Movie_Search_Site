@@ -78,6 +78,13 @@ td label {
     text-decoration: underline;
 }
 
+#bod_div3 {
+    text-align: center;
+    font-size: large;
+    text-decoration: underline;
+}
+
+
 .footer {
     background-color: black;
     color: white;

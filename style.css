@@ -67,11 +67,30 @@ td label {
     transform: scale(1.09);
 }
 
+#bod_div2 h3 {
+    text-align: center;
+    font-size: xx-large;
+    text-decoration: underline;
+}
+
+.del_bttn:hover {
+    background-color: rgb(242, 20, 20);
+    color: white;
+    transform: scale(1.09);
+}
+
 .resultsHeader {
     text-align: center;
     font-size: xx-large;
     text-decoration: underline;
 }
+
+#bod_div3 {
+    text-align: center;
+    font-size: large;
+    text-decoration: underline;
+}
+
 
 .footer {
     background-color: black;
